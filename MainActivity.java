@@ -1,5 +1,7 @@
 package com.example.min10.myapplication;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,4 +35,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void onClick(View v) {
+        try {
+            URL url = new URL("http://192.168.0.2:3000/lightOn");
+            HttpURLConnection urlConnection = null;
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("GET");
+            urlConnection.connect();
+        }
+        catch(MalformedURLException me) {
+            Log.i("error", "1");
+        }
+        catch(IOException ie) {
+            Log.i("error", "2");
+        }
+
+    }
 }
