@@ -44,6 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View v) {
         CN = new ClientNet();
-        CN.lightOn();
+        CN.LightOn();
     }
 }
