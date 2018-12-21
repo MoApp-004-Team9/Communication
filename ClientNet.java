@@ -12,16 +12,18 @@ public class ClientNet {
     private int port = 3000;
     public static com.github.nkzawa.socketio.client.Socket mSocket = null;
 
-    public ClientNet(){
-        try{
-            setSocket(ip,port);
-        }catch (Exception e){e.printStackTrace();}
+    public ClientNet() {
+        try {
+            setSocket(ip, port);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         connect();
     }
 
-    public void connect(){
+    public void connect() {
         mSocket.connect();
-        Log.d("tests","mSocket Connect");
+        Log.d("tests", "mSocket Connect");
     }
 
     public void setSocket(String ip, int port) throws IOException, URISyntaxException {
@@ -34,8 +36,27 @@ public class ClientNet {
         }
     }
 
-    public void lightOn() {
-        mSocket.emit("lightOn");
+    public void LightOn() {
+        mSocket.emit("LightOn");
+    }
 
+    public void LightOff() {
+        mSocket.emit("LightOff");
+    }
+
+    public void AirOn() {
+        mSocket.emit("AirOn");
+    }
+
+    public void AirOff() {
+        mSocket.emit("AirOff");
+    }
+
+    public void BoilerOn() {
+        mSocket.emit("BoilerOn");
+    }
+
+    public void BoilerOff() {
+        mSocket.emit("BoilerOff");
     }
 }
